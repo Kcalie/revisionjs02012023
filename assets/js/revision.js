@@ -22,9 +22,23 @@
         }
     }   
 })();
-// AAjax en Jquery 
+// Ajax en Jquery 
 $(document).ready(function(){
     $('#ajax_jquery').on('click', function(){
         $('#charge2').load('assets/ajax/ajax2.html');
+    });// La dif avec celui du dessus est que une erreur peut s'afficher 
+    $('#ajax_query').on('click', function(){
+        $.ajax({
+            url: 'assets/ajax/ajax2.html',
+            method: 'GET',
+            dataType: 'html',
+        })
+        .done(function(response){
+            $('#charge2').html(response);
+        })
+        .fail(function(error){
+            alert('Ta requête ne fonctionne pas !!')
+        });
     });
 });
+
