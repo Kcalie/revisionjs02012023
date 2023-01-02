@@ -61,6 +61,8 @@ $(document).ready(function(){
     // afficher un message qui indique l'email
     $('#email').on('keyup',function(){
         let email = $(this).val();
+        if(email.length >= 10) {
+            $(this).css('background', 'green');
         $.ajax({
             url: 'assets/ajax/email.php',
             method: 'GET',
@@ -68,12 +70,14 @@ $(document).ready(function(){
             dataType: 'html'
         })
         .done(function(response){
-            alert(response);
+            $('#email_saisie').html(response);
         })
         .fail(function(error){
             alert('erreur email');
         });
-        return false;
+        } else {
+            $(this).css('background', 'red');
+        }
     });
 });
 
