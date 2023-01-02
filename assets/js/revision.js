@@ -22,3 +22,9 @@
         }
     }   
 })();
+// AAjax en Jquery 
+$(document).ready(function(){
+    $('#ajax_jquery').on('click', function(){
+        $('#charge2').load('assets/ajax/ajax2.html');
+    });
+});
