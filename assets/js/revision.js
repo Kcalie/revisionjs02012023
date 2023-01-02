@@ -57,5 +57,22 @@ $(document).ready(function(){
         });
         return false;
     });
+    $('#email').on('keyup',function(){
+        let email = $(this).val();
+        $.ajax({
+            url: 'assets/ajax/email.php',
+            method: 'GET',
+            data: 'email='+email,
+            dataType: 'html'
+        })
+        .done(function(response){
+            alert(response);
+        })
+        .fail(function(error){
+            alert('erreur email');
+        });
+        return false;
+    });
 });
+
 
