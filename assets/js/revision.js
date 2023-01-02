@@ -40,5 +40,22 @@ $(document).ready(function(){
             alert('Ta requête ne fonctionne pas !!')
         });
     });
+    $('formulaire_ajax').on('submit',function(){
+        let formulaire = $('#formulaire_ajax').serialize();/*(METHODE 02)*/
+        $.ajax({
+            url: 'assets/ajax/formulaire.php',
+            method: 'GET',
+            /*data: 'nom='+$('#nom').val()+'&prenom='+$('#prenom').val()+'&email='+$('#email').val(),(METHODE 01)*/
+            data: formulaire,/*(METHODE 02)*/
+            dataType: html
+        })
+        .done(function(response){
+            alert(response);
+        })
+        .fail(function(error){
+            alert('Le formulaire ne peut être enregistré')
+        });
+        return false;
+    });
 });
 
