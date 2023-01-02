@@ -40,6 +40,7 @@ $(document).ready(function(){
             alert('Ta requête ne fonctionne pas !!')
         });
     });
+    // message quand on submit
     $('#formulaire_ajax').on('submit',function(){
         let formulaire = $('#formulaire_ajax').serialize();/*(METHODE 02)*/
         $.ajax({
@@ -57,6 +58,7 @@ $(document).ready(function(){
         });
         return false;
     });
+    // afficher un message qui indique l'email
     $('#email').on('keyup',function(){
         let email = $(this).val();
         $.ajax({
